@@ -1,7 +1,11 @@
 import http from "node:http"
 
-function listener(request, response){
-    return response.end("Óla Mundo");
+
+import { jsonHandler } from "./middlewares/jsonHandler.js"
+
+async function listener(request, response){
+    await jsonHandler(request, response)
+    console.log(request.body)
 }
 
 
